@@ -85,7 +85,7 @@ void lexer(const char* src)
         if (isalpha(src[i]) || src[i] == '_') {
             char buf[MAX_TOKEN_LEN] = {0};
             int j = 0;
-            //Keep copying characters as long as letters or digits OR THE UNDERSCORE. HOLY MOTHER OF GOD THE UNDERSCORE WAS THE PROBLEM
+            //Keep copying characters as long as letters or digits OR THE UNDERSCORE. HOLY MOTHER OF GOD THE UNDERSCORE WAS THE PROBLEM(I spent over 15 hours trying to fix this.)
             while (isalnum(src[i]) || src[i] == '_') buf[j++] = src[i++];
             //If a keyword, assign token type, store in token index
             if (isKeyword(buf)) addToken(keywordType(buf), buf);
