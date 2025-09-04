@@ -1,0 +1,24 @@
+<program> ::= "program" <statements> "end_program"
+
+<statements> ::= { <statement> }
+
+<statement> ::= <assignment> ";"
+             | <loop>
+             | <if_stmt>
+
+<assignment> ::= <identifier> "=" <expression>
+
+<expression> ::= <term> { ("+" | "-") <term> }
+<term>       ::= <factor> { ("*" | "/" | "%") <factor> }
+<factor>     ::= <identifier> | <number> | "(" <expression> ")"
+
+<if_stmt> ::= "if" "(" <logic_expression> ")" <statements> "end_if"
+
+<logic_expression> ::= <condition> { ("&&" | "||") <condition> }
+<condition> ::= <expression> <relop> <expression>
+<relop>     ::= "==" | "!=" | ">" | "<" | ">=" | "<="
+
+<loop> ::= "loop" "(" <identifier> "=" <expression> ":" <expression> ")" <statements> "end_loop"
+
+<identifier> ::= <letter> { <letter> | <digit> }
+<number> ::= <digit> { <digit> }
